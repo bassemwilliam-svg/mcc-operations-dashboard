@@ -20,6 +20,7 @@ export function TopNav({ onSearchOpen }: { onSearchOpen: () => void }) {
     { path: '/scenarios', label: t('nav.scenarios') },
     { path: '/tools', label: t('nav.tools') },
     { path: '/training', label: t('nav.training') },
+    { path: '/ai-reports', label: t('nav.aiReports') },
   ];
 
   return (

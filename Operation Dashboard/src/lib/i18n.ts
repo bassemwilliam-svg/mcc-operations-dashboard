@@ -9,6 +9,7 @@ const translations: Record<string, { en: string; ar: string }> = {
   'nav.scenarios': { en: 'Scenarios', ar: 'السيناريوهات' },
   'nav.tools': { en: 'Tools', ar: 'الأدوات' },
   'nav.training': { en: 'Training', ar: 'التدريب' },
+  'nav.aiReports': { en: 'AI Reports', ar: 'تقارير الذكاء' },
   'nav.search': { en: 'Search', ar: 'بحث' },
 
   // Home page

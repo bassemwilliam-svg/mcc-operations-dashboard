@@ -14,6 +14,7 @@ import { QuickReference } from './pages/QuickReference';
 import { Emergency } from './pages/Emergency';
 import { Glossary } from './pages/Glossary';
 import { Training } from './pages/Training';
+import { AIReports } from './pages/AIReports';
 
 // Using HashRouter for offline file:// compatibility
 export const router = createHashRouter([
@@ -34,6 +35,7 @@ export const router = createHashRouter([
       { path: '/tools/emergency', element: <Emergency /> },
       { path: '/tools/glossary', element: <Glossary /> },
       { path: '/training', element: <Training /> },
+      { path: '/ai-reports', element: <AIReports /> },
     ],
   },
 ]);

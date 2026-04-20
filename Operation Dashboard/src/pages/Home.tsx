@@ -26,6 +26,7 @@ const sections = [
   { icon: AlertTriangle, label: 'Troubleshooter', labelAr: 'مستكشف الأخطاء', desc: 'Decision tree diagnostics', descAr: 'تشخيص عبر شجرة قرارات', to: '/tools/troubleshooter', color: 'bg-orange-500/10 text-orange-400' },
   { icon: Server, label: 'System Architecture', labelAr: 'بنية النظام', desc: 'Network & hardware diagram', descAr: 'مخطط الشبكة والأجهزة', to: '/tools/architecture', color: 'bg-indigo-500/10 text-indigo-400' },
   { icon: GraduationCap, label: 'Training Hub', labelAr: 'مركز التدريب', desc: 'Onboarding & assessments', descAr: 'التأهيل والتقييمات', to: '/training', color: 'bg-purple-500/10 text-purple-400' },
+  { icon: FileText, label: 'AI Sessions Reports', labelAr: 'تقارير جلسات الذكاء الاصطناعي', desc: 'AI-generated operator performance reports', descAr: 'تقارير أداء المشغلين بالذكاء الاصطناعي', to: '/ai-reports', color: 'bg-blue-500/10 text-blue-400' },
   { icon: Crosshair, label: 'Quick Reference', labelAr: 'المرجع السريع', desc: 'One-page operator & supervisor cards', descAr: 'بطاقات مرجعية للمشغّل والمشرف', to: '/tools/quick-reference', color: 'bg-teal-500/10 text-teal-400' },
   { icon: Users, label: 'Emergency Procedures', labelAr: 'إجراءات الطوارئ', desc: 'Escalation paths & contacts', descAr: 'مسارات التصعيد', to: '/tools/emergency', color: 'bg-red-500/10 text-red-400' },
   { icon: HelpCircle, label: 'Glossary', labelAr: 'المصطلحات', desc: 'Quick definitions for key terms', descAr: 'تعريفات سريعة للمصطلحات الرئيسية', to: '/tools/glossary', color: 'bg-gray-500/10 text-gray-400' },
