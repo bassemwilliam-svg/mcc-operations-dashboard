@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-gray-950: #0f1117;
+  --color-gray-900: #161822;
+  --color-gray-850: #1a1d2e;
+  --color-gray-800: #222635;
+  --color-gray-700: #2e3348;
+  --color-gray-600: #3d4359;
+  --color-gray-500: #6b7280;
+  --color-gray-400: #8b91a5;
+  --color-gray-300: #b0b5c5;
+  --color-gray-200: #d1d5e0;
+  --color-gray-100: #e4e7f0;
+  --color-gray-50: #f8fafc;
+
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-light: #60a5fa;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * Global light-mode overrides for common Tailwind classes used across all pages.
+ * Instead of editing every page component, these rules apply light colors
+ * when the dark class is NOT on <html>.
+ * Dark mode still uses the colors defined in @theme above.
+ */
+
+/* Card backgrounds: bg-gray-900 becomes white in light mode */
+html:not(.dark) .bg-gray-900 { background-color: #ffffff !important; }
+html:not(.dark) .bg-gray-850 { background-color: #f8fafc !important; }
+html:not(.dark) .bg-gray-800 { background-color: #f1f5f9 !important; }
+
+/* Borders */
+html:not(.dark) .border-gray-700 { border-color: #e2e8f0 !important; }
+html:not(.dark) .border-gray-800 { border-color: #f1f5f9 !important; }
+html:not(.dark) .border-gray-600 { border-color: #cbd5e1 !important; }
+
+/* Text colors */
+html:not(.dark) .text-gray-100 { color: #1e293b !important; }
+html:not(.dark) .text-gray-200 { color: #334155 !important; }
+html:not(.dark) .text-gray-300 { color: #475569 !important; }
+html:not(.dark) .text-gray-400 { color: #64748b !important; }
+
+/* Hover backgrounds */
+html:not(.dark) .hover\:bg-gray-800:hover { background-color: #f1f5f9 !important; }
+html:not(.dark) .hover\:bg-gray-850:hover { background-color: #f8fafc !important; }
+html:not(.dark) .hover\:bg-gray-700:hover { background-color: #e2e8f0 !important; }
+
+/* Hover borders */
+html:not(.dark) .hover\:border-gray-600:hover { border-color: #cbd5e1 !important; }
+html:not(.dark) .hover\:border-gray-500:hover { border-color: #94a3b8 !important; }
+
+/* Gradient overrides for hero sections */
+html:not(.dark) .from-gray-900 { --tw-gradient-from: #f1f5f9 !important; }
+html:not(.dark) .via-gray-850 { --tw-gradient-via: #f8fafc !important; }
+html:not(.dark) .to-gray-900 { --tw-gradient-to: #f1f5f9 !important; }
+
+/* Theme-aware surface utility classes */
+/* Cards and elevated surfaces */
+.surface-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+.dark .surface-card {
+  background: var(--color-gray-900);
+  border-color: var(--color-gray-700);
+}
+
+/* Input fields and recessed surfaces */
+.surface-input {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+.dark .surface-input {
+  background: var(--color-gray-900);
+  border-color: var(--color-gray-700);
+}
+
+/* Glossary highlight when navigated from a link */
+.glossary-highlight {
+  background: rgba(59, 130, 246, 0.15) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Slightly raised element inside a card */
+.surface-inset {
+  background: #f1f5f9;
+}
+.dark .surface-inset {
+  background: var(--color-gray-800);
+}
+
+/* Navigation bar */
+.surface-nav {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #e2e8f0;
+}
+.dark .surface-nav {
+  background: rgba(15, 17, 23, 0.95);
+  border-color: var(--color-gray-700);
+}
+
+/* Primary text */
+.text-primary { color: #1e293b; }
+.dark .text-primary { color: var(--color-gray-100); }
+
+/* Secondary text */
+.text-secondary { color: #64748b; }
+.dark .text-secondary { color: var(--color-gray-400); }
+
+/* Muted text */
+.text-muted { color: #94a3b8; }
+.dark .text-muted { color: var(--color-gray-500); }
+
+/* Scrollbar styling for dark theme */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: var(--color-gray-900);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-gray-700);
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-600);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-full-width {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
+
+/* Markdown content styles */
+.markdown-content h1 { font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.markdown-content h2 { font-size: 1.5rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-gray-700); }
+.markdown-content h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.markdown-content h4 { font-size: 1.125rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+.markdown-content p { margin-bottom: 1rem; }
+.markdown-content ul, .markdown-content ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+.markdown-content ul { list-style-type: disc; }
+.markdown-content ol { list-style-type: decimal; }
+.markdown-content li { margin-bottom: 0.25rem; }
+.markdown-content a { color: var(--color-accent-light); text-decoration: underline; }
+.markdown-content a:hover { color: var(--color-accent); }
+.markdown-content blockquote {
+  border-left: 4px solid var(--color-accent);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: var(--color-gray-300);
+  font-style: italic;
+}
+.markdown-content code {
+  background: var(--color-gray-800);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family: var(--font-mono);
+}
+.markdown-content pre {
+  background: var(--color-gray-900);
+  border: 1px solid var(--color-gray-700);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+.markdown-content pre code {
+  background: transparent;
+  padding: 0;
+}
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+.markdown-content th, .markdown-content td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+/* Dark theme tables (default) */
+.dark .markdown-content th, .dark .markdown-content td {
+  border: 1px solid var(--color-gray-700);
+}
+.dark .markdown-content th {
+  background: var(--color-gray-800);
+  font-weight: 600;
+  color: var(--color-gray-200);
+}
+.dark .markdown-content tr {
+  background: var(--color-gray-850);
+}
+.dark .markdown-content tr:nth-child(even) {
+  background: var(--color-gray-900);
+}
+.markdown-content hr {
+  border: none;
+  border-top: 1px solid var(--color-gray-700);
+  margin: 2rem 0;
+}
+.markdown-content img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
+
+/* Light theme overrides for markdown */
+html:not(.dark) .markdown-content h2 { border-bottom-color: #e2e8f0; }
+html:not(.dark) .markdown-content code { background: #f1f5f9; }
+html:not(.dark) .markdown-content pre { background: #f8fafc; border-color: #e2e8f0; }
+html:not(.dark) .markdown-content th { background: #f1f5f9; color: #1e293b; }
+html:not(.dark) .markdown-content th, html:not(.dark) .markdown-content td { border-color: #e2e8f0; }
+html:not(.dark) .markdown-content tr { background: #ffffff; }
+html:not(.dark) .markdown-content tr:nth-child(even) { background: #f8fafc; }
+html:not(.dark) .markdown-content blockquote { color: #64748b; }
+html:not(.dark) .markdown-content a { color: var(--color-accent-hover); }

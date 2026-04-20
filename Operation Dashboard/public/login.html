@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./mcc-seal.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>MCC VR Operations Dashboard — Sign in</title>
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body {
+        background: #030712;
+        color: #f3f4f6;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+          Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .card {
+        width: 100%;
+        max-width: 380px;
+        background: #0b1220;
+        border: 1px solid #1f2937;
+        border-radius: 14px;
+        padding: 28px 24px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      .logo img { width: 64px; height: 64px; }
+      h1 {
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        margin: 0 0 4px;
+        letter-spacing: 0.01em;
+      }
+      .subtitle {
+        text-align: center;
+        color: #9ca3af;
+        font-size: 13px;
+        margin: 0 0 20px;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+        color: #9ca3af;
+        margin-bottom: 6px;
+        letter-spacing: 0.02em;
+      }
+      input[type="password"] {
+        width: 100%;
+        background: #030712;
+        color: #f3f4f6;
+        border: 1px solid #1f2937;
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 120ms;
+      }
+      input[type="password"]:focus { border-color: #3b82f6; }
+      button {
+        width: 100%;
+        margin-top: 14px;
+        padding: 10px 14px;
+        background: #2563eb;
+        color: #fff;
+        border: 0;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 120ms;
+      }
+      button:hover { background: #1d4ed8; }
+      button:disabled { background: #1e3a8a; cursor: not-allowed; }
+      .error {
+        margin-top: 12px;
+        font-size: 12px;
+        color: #f87171;
+        min-height: 16px;
+        text-align: center;
+      }
+      .footer {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 11px;
+        color: #6b7280;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="card" id="gate">
+      <div class="logo"><img src="./mcc-seal.png" alt="MCC" /></div>
+      <h1>MCC VR Operations Dashboard</h1>
+      <p class="subtitle">Restricted access. Enter your access key.</p>
+      <label for="pw">Access key</label>
+      <input id="pw" type="password" autocomplete="current-password" autofocus required />
+      <button id="submit" type="submit">Unlock</button>
+      <div class="error" id="err" role="alert" aria-live="polite"></div>
+      <div class="footer">Authorised personnel only</div>
+    </form>
+    <script>
+      (function () {
+        var EXPECTED = "7914fac274db780fed02fe9ba8da03aba278446f627a4b82402eca97fee20d56";
+        var form = document.getElementById("gate");
+        var pw = document.getElementById("pw");
+        var err = document.getElementById("err");
+        var btn = document.getElementById("submit");
+
+        async function sha256(s) {
+          var buf = new TextEncoder().encode(s);
+          var h = await crypto.subtle.digest("SHA-256", buf);
+          return Array.from(new Uint8Array(h))
+            .map(function (b) { return b.toString(16).padStart(2, "0"); })
+            .join("");
+        }
+
+        try {
+          if (sessionStorage.getItem("mcc_auth") === EXPECTED) {
+            window.location.replace("./");
+            return;
+          }
+        } catch (e) {}
+
+        form.addEventListener("submit", async function (ev) {
+          ev.preventDefault();
+          err.textContent = "";
+          btn.disabled = true;
+          try {
+            var hash = await sha256(pw.value);
+            if (hash === EXPECTED) {
+              try { sessionStorage.setItem("mcc_auth", EXPECTED); } catch (e) {}
+              var target = new URLSearchParams(window.location.search).get("next") || "./";
+              window.location.replace(target);
+            } else {
+              err.textContent = "Invalid access key.";
+              pw.select();
+            }
+          } catch (e) {
+            err.textContent = "Browser does not support secure login.";
+          } finally {
+            btn.disabled = false;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

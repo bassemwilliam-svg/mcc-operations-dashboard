@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./mcc-seal.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MCC VR Operations Dashboard</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <script>
+      (function () {
+        var EXPECTED = "7914fac274db780fed02fe9ba8da03aba278446f627a4b82402eca97fee20d56";
+        try {
+          if (sessionStorage.getItem("mcc_auth") === EXPECTED) return;
+        } catch (e) {}
+        var next = encodeURIComponent(window.location.pathname + window.location.search + window.location.hash);
+        window.location.replace("./login.html?next=" + next);
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-5LDCwsM9.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/chunk-CFjPhJqf.js">
+    <link rel="modulepreload" crossorigin href="./assets/src-C47h8eAM.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-ICPOFSXX-BiVSAW9j.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BXMOO6xX.js">
+    <link rel="modulepreload" crossorigin href="./assets/identity-D4WOnl_h.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-5PVQY5BW-Bg9l_T3c.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-U2HBQHQK-Ctne8--1.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-X2U36JSP-DZUDT6nD.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-ZZ45TVLE-CktjIkFh.js">
+    <link rel="modulepreload" crossorigin href="./assets/rough.esm-DtEqI08j.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-5FUZZQ4R-DvOY7ehC.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-BSJP7CBP-D8kBlJsf.js">
+    <link rel="modulepreload" crossorigin href="./assets/path-CIRGLb_6.js">
+    <link rel="modulepreload" crossorigin href="./assets/array-BCJ35G43.js">
+    <link rel="modulepreload" crossorigin href="./assets/line-B8u7sens.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-ENJZ2VHE-CL3SUWFf.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-J9FwBMqx.css">
+  </head>
+  <body class="bg-gray-950 text-gray-100">
+    <div id="root"></div>
+  </body>
+</html>

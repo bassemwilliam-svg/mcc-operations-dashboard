@@ -1,0 +1,8 @@
+Operation Dashboard/node_modules/
+Operation Dashboard/dist/
+.DS_Store
+.vscode/
+.idea/
+*.local
+*.log
+
