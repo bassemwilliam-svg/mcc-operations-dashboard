@@ -50,7 +50,9 @@ export function Home() {
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-850 dark:to-gray-900 border border-gray-200 dark:border-gray-700 p-8">
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-4">
-            <img src="./mcc-seal.png" alt="MCC Seal" className="w-14 h-14 object-contain" />
+            <span className="inline-flex items-center rounded-lg bg-gray-900 dark:bg-transparent px-3 py-2">
+              <img src="./mcc-logo.svg" alt="MCC · Monitoring and Control Center" className="h-8 w-auto" />
+            </span>
             <div>
               <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{t('home.title')}</h1>
               <p className="text-sm text-gray-500 dark:text-gray-400">{t('home.subtitle')}</p>

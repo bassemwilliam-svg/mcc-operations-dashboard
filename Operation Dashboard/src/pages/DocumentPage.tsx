@@ -94,9 +94,7 @@ export function DocumentPage() {
         <div className="mb-8 p-6 rounded-xl bg-gray-900 border border-gray-700">
           {/* Full MCC logo */}
           <div className="flex justify-center mb-5 pb-5 border-b border-gray-700">
-            <div className="bg-white rounded-lg px-6 py-3">
-              <img src="./mcc-logo-full.jpeg" alt="Monitoring & Control Centre" className="h-12 object-contain" />
-            </div>
+            <img src="./mcc-logo.svg" alt="MCC · Monitoring and Control Center" className="h-12 w-auto object-contain" />
           </div>
           <div className="flex items-start justify-between">
             <div>

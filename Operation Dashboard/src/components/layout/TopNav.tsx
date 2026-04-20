@@ -27,8 +27,10 @@ export function TopNav({ onSearchOpen }: { onSearchOpen: () => void }) {
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0">
-            <img src="./mcc-seal.png" alt="MCC Seal" className="w-9 h-9 object-contain" />
+          <Link to="/" className="flex items-center gap-3 shrink-0">
+            <span className="inline-flex items-center rounded-md bg-gray-900 dark:bg-transparent px-2 py-1.5">
+              <img src="./mcc-logo.svg" alt="MCC · Monitoring and Control Center" className="h-6 w-auto" />
+            </span>
             <div className="hidden sm:block">
               <div className="text-sm font-bold tracking-tight text-gray-900 dark:text-gray-100">
                 {language === 'ar' ? 'عمليات MCC VR' : 'MCC VR Operations'}

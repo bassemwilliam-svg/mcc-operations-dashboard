@@ -2,7 +2,7 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./mcc-seal.png" />
+    <link rel="icon" type="image/svg+xml" href="./mcc-logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex,nofollow" />
     <title>MCC VR Operations Dashboard — Sign in</title>
@@ -32,9 +32,9 @@
       .logo {
         display: flex;
         justify-content: center;
-        margin-bottom: 16px;
+        margin-bottom: 18px;
       }
-      .logo img { width: 64px; height: 64px; }
+      .logo img { height: 36px; width: auto; max-width: 100%; }
       h1 {
         font-size: 18px;
         font-weight: 600;
@@ -99,8 +99,8 @@
   </head>
   <body>
     <form class="card" id="gate">
-      <div class="logo"><img src="./mcc-seal.png" alt="MCC" /></div>
-      <h1>MCC VR Operations Dashboard</h1>
+      <div class="logo"><img src="./mcc-logo.svg" alt="MCC · Monitoring and Control Center" /></div>
+      <h1>VR Operations Dashboard</h1>
       <p class="subtitle">Restricted access. Enter your access key.</p>
       <label for="pw">Access key</label>
       <input id="pw" type="password" autocomplete="current-password" autofocus required />
